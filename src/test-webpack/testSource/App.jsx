@@ -3,7 +3,7 @@ import Note from './Note.jsx';
 
 export default class App extends React.Component {
   render() {
-  var string = "000";
+  var string = "";
   for(var i = 0;i<5;i++){
     string += i+1;
   }
