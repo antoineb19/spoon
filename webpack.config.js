@@ -13,5 +13,17 @@ module.exports = {
   output: {
     path: PATHS.testApp,
     filename: 'bundle.js'
-  }
+  }, 
+    resolve: {
+        extensions : ["", ".js", ".jsx"]
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                loaders: ["babel"],
+                include: PATHS.testSource
+            }
+        ]
+    }
 };
