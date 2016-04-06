@@ -1,0 +1,32 @@
+{
+  "name": "spoon",
+  "version": "0.0.1",
+  "description": "The spoon project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antoineb19/spoon.git"
+  },
+  "author": "Antoine Benoit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antoineb19/spoon/issues"
+  },
+  "homepage": "https://github.com/antoineb19/spoon#readme",
+  "devDependencies": {
+    "babel-core": "^6.7.4",
+    "babel-loader": "^6.2.4",
+    "webpack": "^1.12.14"
+  },
+  "dependencies": {
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
+  }, 
+    "scripts": {
+        "build": "webpack"
+    }
+}
