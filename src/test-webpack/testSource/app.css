@@ -1,0 +1,16 @@
+*
+{
+    font-family: sans-serif
+}
+
+.app-bar{
+    margin:0px;
+    background-color:seagreen;
+    color:black;
+    margin-bottom:5px;
+}
+
+body{
+    padding:0px;
+    margin:0px;
+}

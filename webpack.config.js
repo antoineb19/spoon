@@ -30,6 +30,10 @@ module.exports = {
                 loaders: ["react-hot", "babel"], 
                 include: PATHS.testSource, 
                 exclude: /node_modules/
+            }, 
+            {
+              test: /\.css$/, // Only .css files
+              loader: 'style!css' // Run both loaders
             }
         ]
     }
