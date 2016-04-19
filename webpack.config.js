@@ -1,24 +1,58 @@
 const webpack =  require('webpack');
 const path = require('path');
-const merge = require('webpack-merge');
-
-const TARGET = process.env.npm_lifecycle_event;
-
-process.env.BABEL_ENV = TARGET;
 
 const PATHS = {
     testSource: path.join(__dirname, "src/test-webpack/testSource"), 
     testApp: path.join(__dirname, "src/test-webpack/testApp")
 };
 
+module.exports = {
+    entry: [
+        'webpack-dev-server/client?http://127.0.0.1:8080/', 
+        'webpack/hot/only-dev-server',
+        PATHS.testSource
+    ],
+    output: {
+        path: PATHS.testApp, 
+        filename: "bundle.js"
+    }, 
+    resolve: {
+        extensions: ["", ".js", ".jsx"]
+    }, 
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(), 
+        new webpack.NoErrorsPlugin()
+    ],
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                loaders: ["react-hot", "babel"], 
+                include: PATHS.testSource, 
+                exclude: /node_modules/
+            }
+        ]
+    }
+};
+
+
+/*
+
+// AVEC MERGE
+
+const merge = require('webpack-merge');
+const TARGET = process.env.npm_lifecycle_event;
+
+process.env.BABEL_ENV = TARGET;
+
 const common = {
-  entry: {
-    testApp: PATHS.testSource
-  },
-  output: {
-    path: PATHS.testApp,
-    filename: 'bundle.js'
-  }, 
+    entry: {
+        testApp: PATHS.testSource
+    },
+    output: {
+        path: PATHS.testApp,
+        filename: 'bundle.js'
+    }, 
     resolve: {
         extensions : ["", ".js", ".jsx"]
     },
@@ -54,3 +88,4 @@ if(TARGET === 'start' || !TARGET) {
   });
 
 }
+*/
